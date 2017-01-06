@@ -6,6 +6,14 @@ let g:python3_host_prog = '/Users/ewanvalentine/.pyenv/versions/neovim3/bin/pyth
 " Go imports on save
 let g:go_fmt_command = "goimports"
 
+" Go syntax highlighting
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
 let g:mapleader = ' '
 let mapleader = ' '
 
