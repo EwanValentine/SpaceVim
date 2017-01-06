@@ -1,17 +1,33 @@
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/config/main.vim'
 
-" Spacing
-autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType php set tabstop=4|set shiftwidth=4|set expandtab
-autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
-autocmd FileType go set tabstop=4|set shiftwidth=4|set expandtab
+let g:python_host_prog = '/Users/ewanvalentine/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/Users/ewanvalentine/.pyenv/versions/neovim3/bin/python'
 
+" Go imports on save
+let g:go_fmt_command = "goimports"
+
+" Go syntax highlighting
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+let g:mapleader = ' '
+let mapleader = ' '
+
+" Multi-line Default mapping
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+" Spacing
+autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType php set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType go set tabstop=4|set shiftwidth=4|set expandtab
 
 " Misc
 set nohlsearch

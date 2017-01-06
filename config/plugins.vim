@@ -18,6 +18,26 @@ let s:plugins.colorscheme = [
             \ ['mhinz/vim-janah'],
             \ ['tomasr/molokai'],
             \ ['kabbamine/yowish.vim'],
+            \ ['vim-scripts/wombat256.vim'],
+            \ ['vim-scripts/twilight256.vim'],
+            \ ['junegunn/seoul256.vim'],
+            \ ['vim-scripts/rdark-terminal2.vim'],
+            \ ['vim-scripts/pyte'],
+            \ ['joshdick/onedark.vim'],
+            \ ['fmoralesc/molokayo'],
+            \ ['jonathanfilip/vim-lucius'],
+            \ ['wimstefan/Lightning'],
+            \ ['w0ng/vim-hybrid'],
+            \ ['scheakur/vim-scheakur'],
+            \ ['keith/parsec.vim'],
+            \ ['NLKNguyen/papercolor-theme'],
+            \ ['romainl/flattened'],
+            \ ['MaxSt/FlatColor'],
+            \ ['chase/focuspoint-vim'],
+            \ ['chriskempson/base16-vim'],
+            \ ['gregsexton/Atom'],
+            \ ['gilgigilgil/anderson.vim'],
+            \ ['romainl/Apprentice'],
             \ ]
 
 let s:plugins.checkers = []
@@ -192,6 +212,12 @@ function! s:load_plugins() abort
                 call zvim#plug#add(plugin[0])
             endif
         endfor
+    endfor
+endfunction
+
+function! s:disable_plugins(plugin_list) abort
+    for name in a:plugin_list
+        call dein#disable(name)
     endfor
 endfunction
 
@@ -444,5 +470,8 @@ if zvim#plug#enable_plug()
     " google plugins
     call zvim#plug#add('google/vim-searchindex')
     call zvim#plug#add('Yggdroot/LeaderF', {'merged' : 0})
+
+    call s:disable_plugins(g:spacevim_disabled_plugins)
+
     call zvim#plug#end()
 endif

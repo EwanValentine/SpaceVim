@@ -8,6 +8,10 @@ scriptencoding utf-8
 " @plugin(name) is configured by these options.
 
 ""
+" Version of SpaceVim , this value can not be changed.
+let g:spacevim_version = '0.1.0-dev'
+lockvar g:spacevim_version
+""
 " Change the default indent of SpaceVim. default is 2.
 " >
 "   let g:spacevim_default_indent = 2
@@ -19,6 +23,12 @@ let g:spacevim_default_indent          = 2
 "   let g:spacevim_max_column = 120
 " <
 let g:spacevim_max_column              = 120
+""
+" Enable true color support in terminal.
+" >
+"   let g:spacevim_enable_guicolors = 1
+" <
+let g:spacevim_enable_guicolors = 1
 ""
 " Enable/Disable google suggestion for neocomplete. by default it is Disabled.
 " you can enable it by:
@@ -67,6 +77,12 @@ let g:spacevim_filemanager             = 'vimfiler'
 " The default plugin manager of SpaceVim, dein, neobundle or vim-plug. by
 " default it is dein.
 let g:spacevim_plugin_manager          = 'dein'  " neobundle or dein or vim-plug
+""
+" Enable/Disable checkinstall on SpaceVim startup. by default is 0.
+"
+" To enable it: >
+"   let g:spacevim_checkinstall = 1
+" <
 let g:spacevim_checkinstall            = 0
 let g:spacevim_hiddenfileinfo          = 1
 let g:spacevim_plugin_groups_exclude   = []
@@ -78,6 +94,12 @@ let g:spacevim_plugin_groups_exclude   = []
 " <
 " now Space Vim support these groups:
 let g:spacevim_plugin_groups           = []
+""
+" Disable plugins by names.
+" example: >
+"   let g:spacevim_disabled_plugins = ['vim-foo', 'vim-bar']
+" <
+let g:spacevim_disabled_plugins        = []
 ""
 " enable/disable SpaceVim with powerline symbols.
 let g:spacevim_enable_powerline_fonts  = 1
@@ -151,43 +173,8 @@ endfunction
 
 
 function! SpaceVim#default() abort
-    call add(g:spacevim_plugin_groups, 'web')
-    call add(g:spacevim_plugin_groups, 'lang')
-    call add(g:spacevim_plugin_groups, 'checkers')
-    call add(g:spacevim_plugin_groups, 'chat')
-    call add(g:spacevim_plugin_groups, 'javascript')
-    call add(g:spacevim_plugin_groups, 'ruby')
-    call add(g:spacevim_plugin_groups, 'python')
-    call add(g:spacevim_plugin_groups, 'scala')
-    call add(g:spacevim_plugin_groups, 'go')
-    call add(g:spacevim_plugin_groups, 'scm')
-    call add(g:spacevim_plugin_groups, 'editing')
-    call add(g:spacevim_plugin_groups, 'indents')
-    call add(g:spacevim_plugin_groups, 'navigation')
-    call add(g:spacevim_plugin_groups, 'misc')
-
-    call add(g:spacevim_plugin_groups, 'core')
-    call add(g:spacevim_plugin_groups, 'unite')
-    call add(g:spacevim_plugin_groups, 'github')
-    if has('python3')
-        call add(g:spacevim_plugin_groups, 'denite')
-    endif
-    call add(g:spacevim_plugin_groups, 'ctrlp')
-    call add(g:spacevim_plugin_groups, 'autocomplete')
-    if ! has('nvim')
-        call add(g:spacevim_plugin_groups, 'vim')
-    else
-        call add(g:spacevim_plugin_groups, 'nvim')
-    endif
-    if OSX()
-        call add(g:spacevim_plugin_groups, 'osx')
-    endif
-    if WINDOWS()
-        call add(g:spacevim_plugin_groups, 'windows')
-    endif
-    if LINUX()
-        call add(g:spacevim_plugin_groups, 'linux')
-    endif
+    call SpaceVim#default#SetOptions()
+    call SpaceVim#default#SetPlugins()
 endfunction
 
 function! SpaceVim#defindFuncs() abort

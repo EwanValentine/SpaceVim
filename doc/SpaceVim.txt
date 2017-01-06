@@ -17,6 +17,9 @@ CONFIGURATION                                                *SpaceVim-config*
 
 SpaceVim is configured by these options.
 
+                                                          *g:spacevim_version*
+Version of SpaceVim , this value can not be changed.
+
                                                    *g:spacevim_default_indent*
 Change the default indent of SpaceVim. default is 2.
 >
@@ -27,6 +30,12 @@ Change the default indent of SpaceVim. default is 2.
 Change the max column of SpaceVim, default is 120.
 >
   let g:spacevim_max_column = 120
+<
+
+                                                 *g:spacevim_enable_guicolors*
+Enable true color support in terminal.
+>
+  let g:spacevim_enable_guicolors = 1
 <
 
                                              *g:spacevim_enable_googlesuggest*
@@ -65,6 +74,14 @@ The default file manager of SpaceVim.
 The default plugin manager of SpaceVim, dein, neobundle or vim-plug. by
 default it is dein.
 
+                                                     *g:spacevim_checkinstall*
+Enable/Disable checkinstall on SpaceVim startup. by default is 0.
+
+To enable it:
+>
+  let g:spacevim_checkinstall = 1
+<
+
                                                     *g:spacevim_plugin_groups*
 groups of plugins should be loaded.
 
@@ -73,6 +90,12 @@ example:
    let g:spacevim_plugin_groups = ['core', 'lang']
 <
 now Space Vim support these groups:
+
+                                                 *g:spacevim_disabled_plugins*
+Disable plugins by names. example:
+>
+  let g:spacevim_disabled_plugins = ['vim-foo', 'vim-bar']
+<
 
                                            *g:spacevim_enable_powerline_fonts*
 enable/disable SpaceVim with powerline symbols.
