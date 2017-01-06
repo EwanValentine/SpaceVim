@@ -3,7 +3,8 @@ execute 'source' fnamemodify(expand('<sfile>'), ':h').'/config/main.vim'
 let g:python_host_prog = '/Users/ewanvalentine/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '/Users/ewanvalentine/.pyenv/versions/neovim3/bin/python'
 
-let g:spacevim_colorscheme = 'Atom'
+" Go imports on save
+let g:go_fmt_command = "goimports"
 
 let g:mapleader = ' '
 let mapleader = ' '
